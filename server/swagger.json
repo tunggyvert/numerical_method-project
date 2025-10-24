@@ -1,0 +1,46 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Problems API",
+    "version": "1.0.0",
+    "description": "API documentation for Problems"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3001"
+    }
+  ],
+  "paths": {
+    "/problems": {
+      "get": {
+        "summary": "Get all problems",
+        "responses": {
+          "200": {
+            "description": "List of problems"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new problem",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "method": { "type": "string" },
+                  "category": { "type": "string" },
+                  "input": { "type": "object" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Problem saved" }
+        }
+      }
+    }
+  }
+}
